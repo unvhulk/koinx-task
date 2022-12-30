@@ -70,7 +70,7 @@ function CoinList({ coins, onPageChange, pageCount }) {
 					breakLabel='...'
 					breakClassName='page-item'
 					breakLinkClassName='page-link'
-					containerClassName='pagination'
+					containerClassName='pagination pagination-container'
 					activeClassName='active'
 					renderOnZeroPageCount={null}
 				/>

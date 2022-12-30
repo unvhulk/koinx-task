@@ -18,6 +18,9 @@
 	font-weight: 700;
 	grid-column: 2/3;
 }
+.heading > img {
+	width: 3%;
+}
 .icons {
 	display: flex;
 	justify-content: end;
@@ -120,4 +123,8 @@
 }
 .coinImage {
 	width: 1rem;
+}
+.pagination-container {
+	display: flex;
+	justify-content: end;
 }

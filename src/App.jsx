@@ -7,6 +7,7 @@ import back from "./assets/back.png";
 import forward from "./assets/forward.png";
 import search from "./assets/search.png";
 import menu from "./assets/menu.png";
+import c from "./assets/c.png";
 
 function App() {
 	const [coins, setCoins] = useState([]);
@@ -37,7 +38,10 @@ function App() {
 	return (
 		<div className='App'>
 			<header className='header'>
-				<div className='heading'>Crypto Tracker</div>
+				<div className='heading'>
+					<img src={c} alt='' />
+					Crypto Tracker
+				</div>
 				<div className='icons'>
 					<img src={search} alt='' />
 					<img src={menu} alt='' />
