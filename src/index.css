@@ -1,0 +1,13 @@
+body {
+	display: grid;
+	margin: 0;
+}
+#root {
+	display: grid;
+	height: 100vh;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: white;
+	box-sizing: border-box;
+}
