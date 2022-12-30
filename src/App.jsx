@@ -3,6 +3,10 @@ import "./App.css";
 import CoinList from "./Components/CoinList";
 import axios from "axios";
 import Carousel from "./Components/Carousel";
+import back from "./assets/back.png";
+import forward from "./assets/forward.png";
+import search from "./assets/search.png";
+import menu from "./assets/menu.png";
 
 function App() {
 	const [coins, setCoins] = useState([]);
@@ -34,17 +38,22 @@ function App() {
 		<div className='App'>
 			<header className='header'>
 				<div className='heading'>Crypto Tracker</div>
-				<div className='icons'>Search</div>
+				<div className='icons'>
+					<img src={search} alt='' />
+					<img src={menu} alt='' />
+				</div>
 			</header>
 			<main className='main'>
 				<div className='carousel'>
-					<div className='back'>
-						<img src='' alt='' />
+					<div className='buttons back'>
+						<img src={back} alt='' />
 					</div>
 					<div className='cards'>
 						<Carousel />
 					</div>
-					<div className='forward'></div>
+					<div className='buttons forward'>
+						<img src={forward} alt='' />
+					</div>
 				</div>
 				<div className='coinList'>
 					<CoinList
