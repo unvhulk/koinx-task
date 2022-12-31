@@ -7,7 +7,7 @@ import back from "./assets/back.png";
 import forward from "./assets/forward.png";
 import search from "./assets/search.png";
 import menu from "./assets/menu.png";
-import c from "./assets/c.png";
+import cSymbol from "./assets/c.png";
 
 function App() {
 	const [coins, setCoins] = useState([]);
@@ -39,8 +39,8 @@ function App() {
 		<div className='App'>
 			<header className='header'>
 				<div className='heading'>
-					<img src={c} alt='' />
-					Crypto Tracker
+					<img src={cSymbol} alt='' />
+					<div>Crypto Tracker</div>
 				</div>
 				<div className='icons'>
 					<img src={search} alt='' />
@@ -60,11 +60,15 @@ function App() {
 					</div>
 				</div>
 				<div className='coinList'>
-					<CoinList
-						coins={coins}
-						onPageChange={handlePageClick}
-						pageCount={page}
-					/>
+					{!coins ? (
+						<div>LOADING.....</div>
+					) : (
+						<CoinList
+							coins={coins}
+							onPageChange={handlePageClick}
+							pageCount={page}
+						/>
+					)}
 				</div>
 			</main>
 		</div>

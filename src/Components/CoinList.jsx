@@ -38,10 +38,27 @@ function CoinList({ coins, onPageChange, pageCount }) {
 									</div>
 								</td>
 								<td>${dollars.format(coin.current_price)}</td>
-								<td style={{ color: "Red" }}>
+								<td
+									style={{
+										color: `${
+											Math.sign(coin.price_change_percentage_24h.toFixed(2)) >=
+											0
+												? "Green"
+												: "Red"
+										}`,
+									}}>
 									{coin.price_change_percentage_24h.toFixed(2)}%
 								</td>
-								<td style={{ color: "Red" }}>
+								<td
+									style={{
+										color: `${
+											Math.sign(
+												coin.price_change_percentage_7d_in_currency.toFixed(2)
+											) >= 0
+												? "Green"
+												: "Red"
+										}`,
+									}}>
 									{coin.price_change_percentage_7d_in_currency.toFixed(2)}%
 								</td>
 								<td>${dollars.format(coin.market_cap)}</td>
