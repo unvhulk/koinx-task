@@ -47,6 +47,7 @@
 }
 .back {
 	justify-content: end;
+	padding-right: 1rem;
 }
 .back > img {
 	width: 1.5rem;
@@ -57,11 +58,13 @@
 		font-size: 0.9rem;
 	}
 }
-@media (max-width: 768px) {
+
+@media (max-width: 999px) {
 	.buttons {
 		display: none;
 	}
 	.cards {
 		grid-column: 1/4;
+		grid-template-columns: repeat(3, 20rem);
 	}
 }
