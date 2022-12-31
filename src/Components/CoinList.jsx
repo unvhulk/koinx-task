@@ -1,15 +1,30 @@
+import { useState } from "react";
 import Pagination from "react-paginate";
 import "bootstrap/dist/css/bootstrap.css";
+import MobilePopup from "./MobilePopup";
 
 function CoinList({ coins, onPageChange, pageCount }) {
 	const dollars = new Intl.NumberFormat("en-US");
 	const currency = new Intl.NumberFormat();
+
+	const [popup, setPopup] = useState(false);
+	const [currentCoin, setCurrentCoin] = useState({});
+
+	const handlePopup = (event, coin) => {
+		if (event.view.innerWidth <= 425) {
+			setCurrentCoin(coin);
+			setPopup(true);
+		}
+	};
 
 	return (
 		<div className='coinList-container'>
 			<div className='coinList-header'>
 				Top 100 Cryptocurrencies by Market Cap
 			</div>
+			{popup && (
+				<MobilePopup coin={currentCoin} onClose={() => setPopup(false)} />
+			)}
 			<div className='container mt-5'>
 				<table className='table '>
 					<thead>
@@ -26,7 +41,7 @@ function CoinList({ coins, onPageChange, pageCount }) {
 					</thead>
 					<tbody>
 						{coins.map((coin, index) => (
-							<tr key={coin.id}>
+							<tr key={coin.id} onClick={() => handlePopup(event, coin)}>
 								<th scope='row'>{(pageCount - 1) * 10 + index + 1}</th>
 								<td>
 									<div className='coinName'>
