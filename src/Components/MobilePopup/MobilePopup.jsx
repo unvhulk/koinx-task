@@ -1,5 +1,8 @@
 import React from "react";
 import "./MobilePopup.css";
+import close from "../../assets/close.png";
+import triangleDown from "../../assets/triangle-down.png";
+import triangleUp from "../../assets/triangle-up.png";
 
 const MobilePopup = ({ coin, onClose }) => {
 	const dollars = new Intl.NumberFormat("en-US");
@@ -16,7 +19,7 @@ const MobilePopup = ({ coin, onClose }) => {
 						<span className='coinSymbol'>{coin.symbol.toUpperCase()}</span>
 					</div>
 					<div className='PopupClose' onClick={onClose}>
-						X
+						<img src={close} />
 					</div>
 				</div>
 				<div className='PopupRow'>
@@ -27,29 +30,50 @@ const MobilePopup = ({ coin, onClose }) => {
 					<div className='Popup24H'>
 						<div className='PopupHeading'>24H</div>
 						<div
+							className='RowPercent'
 							style={{
 								color: `${
 									Math.sign(coin.price_change_percentage_24h.toFixed(2)) >= 0
-										? "Green"
-										: "Red"
+										? "rgb(22,199,132)"
+										: "rgb(234,56,66)"
 								}`,
 							}}>
-							{coin.price_change_percentage_24h.toFixed(2)}%
+							<img
+								src={`${
+									Math.sign(coin.price_change_percentage_24h.toFixed(2)) >= 0
+										? triangleUp
+										: triangleDown
+								}`}
+								className='triangleIcon'
+							/>
+							{Math.abs(coin.price_change_percentage_24h.toFixed(2))}%
 						</div>
 					</div>
 					<div className='Popup7D'>
 						<div className='PopupHeading'>7D</div>
 						<div
+							className='RowPercent'
 							style={{
 								color: `${
 									Math.sign(
 										coin.price_change_percentage_7d_in_currency.toFixed(2)
 									) >= 0
-										? "Green"
-										: "Red"
+										? "rgb(22,199,132)"
+										: "rgb(234,56,66)"
 								}`,
 							}}>
-							{coin.price_change_percentage_7d_in_currency.toFixed(2)}%
+							<img
+								src={`${
+									Math.sign(
+										coin.price_change_percentage_7d_in_currency.toFixed(2)
+									) >= 0
+										? triangleUp
+										: triangleDown
+								}`}
+								className='triangleIcon'
+							/>
+							{Math.abs(coin.price_change_percentage_7d_in_currency.toFixed(2))}
+							%
 						</div>
 					</div>
 				</div>

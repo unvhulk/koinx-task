@@ -1,0 +1,97 @@
+.coinList {
+	display: grid;
+	grid-template-columns: 1fr 9fr 1fr;
+}
+.coinList-container {
+	display: grid;
+	grid-column: 2/3;
+}
+.coinList-header {
+	padding-left: 1rem;
+	font-size: larger;
+	font-weight: 700;
+}
+.index {
+	display: flex;
+	justify-content: space-between;
+}
+.coinName {
+	display: flex;
+	gap: 3px;
+	justify-content: start;
+	align-items: center;
+}
+.coinSymbol {
+	padding: 6px 0 0 2px;
+	font-size: small;
+	color: gray;
+}
+.coinImage {
+	width: 1rem;
+}
+.triangleIcon {
+	width: 10px;
+}
+.RowPercent {
+	display: flex;
+	align-items: baseline;
+	gap: 2px;
+}
+.pagination-container {
+	display: flex;
+	justify-content: end;
+	grid-column: 2/3;
+}
+@media (max-width: 425px) {
+	.table th:nth-child(n + 6),
+	.table td:nth-child(n + 6) {
+		display: none;
+	}
+	.table th:nth-child(2),
+	.table td:nth-child(2) {
+		display: none;
+	}
+	.table th,
+	.table td {
+		font-size: medium;
+	}
+	.coinList-header {
+		font-size: larger;
+	}
+}
+@media (min-width: 425px) and (max-width: 768px) {
+	.coinList-header {
+		font-size: x-large;
+	}
+	.table th:nth-child(n + 8),
+	.table td:nth-child(n + 8) {
+		display: none;
+	}
+	.table th:nth-child(2),
+	.table td:nth-child(2) {
+		display: none;
+	}
+	.table th,
+	.table td {
+		font-size: 1rem;
+	}
+}
+@media (min-width: 768px) and (max-width: 992px) {
+	.coinList-header {
+		font-size: x-large;
+	}
+	.table th:nth-child(n + 8),
+	.table td:nth-child(n + 8) {
+		display: none;
+	}
+	.table th:nth-child(2),
+	.table td:nth-child(2) {
+		display: none;
+	}
+}
+@media (max-width: 999px) {
+	.pagination-container {
+		display: flex;
+		justify-content: center;
+	}
+}

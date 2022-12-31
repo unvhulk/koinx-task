@@ -1,0 +1,70 @@
+.cardContainer {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	margin: 1rem 5px;
+	border-radius: 1rem;
+	background-color: rgb(254, 255, 254);
+	box-shadow: 0 0 10px -6px;
+	margin-right: 20px;
+}
+.logo {
+	grid-column: 1/2;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem;
+}
+.logo > img {
+	width: 5rem;
+	height: 5rem;
+	border-radius: 1rem;
+}
+.content {
+	padding-top: 1.4rem;
+}
+.title {
+	display: grid;
+	color: gray;
+	grid-column: 2/3;
+	align-items: center;
+	font-size: 0.9rem;
+}
+.description {
+	grid-column: 2/3;
+	align-items: baseline;
+	font-size: 0.9rem;
+	font-weight: 600;
+	padding-right: 0.5rem;
+}
+.buttons {
+	display: grid;
+	align-items: center;
+}
+
+.forward > img {
+	width: 1.5rem;
+	cursor: pointer;
+}
+.back {
+	justify-content: end;
+	padding-right: 1rem;
+}
+.back > img {
+	width: 1.5rem;
+	cursor: pointer;
+}
+@media (min-width: 768px) and (max-width: 992px) {
+	.content .description {
+		font-size: 0.9rem;
+	}
+}
+
+@media (max-width: 999px) {
+	.buttons {
+		display: none;
+	}
+	.cards {
+		grid-column: 1/4;
+		grid-template-columns: repeat(3, 20rem);
+	}
+}
