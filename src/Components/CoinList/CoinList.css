@@ -19,6 +19,7 @@
 	grid-template-columns: repeat(2, 1fr);
 	justify-self: end;
 	cursor: pointer;
+	gap: 5px;
 }
 .dropdownHeader {
 	font-weight: 400;
@@ -81,8 +82,7 @@
 }
 
 .dropdown:hover .dropbtn {
-	background-color: black;
-	color: white;
+	outline: 1px solid black;
 }
 .index {
 	display: flex;
@@ -134,7 +134,10 @@
 }
 @media (min-width: 425px) and (max-width: 768px) {
 	.coinList-header {
-		font-size: x-large;
+		grid-template-columns: 2fr 1fr;
+	}
+	.dropbtn > img {
+		width: 1.5rem;
 	}
 	.table th:nth-child(n + 7),
 	.table td:nth-child(n + 7) {
@@ -148,13 +151,19 @@
 	.table td {
 		font-size: 1rem;
 	}
+	.dropbtn > img {
+		padding: 5px;
+	}
 }
 @media (min-width: 768px) and (max-width: 992px) {
 	.coinList-header {
-		font-size: x-large;
+		grid-template-columns: 2fr 1fr;
 	}
-	.table th:nth-child(n + 8),
-	.table td:nth-child(n + 8) {
+	.coinList-heading {
+		font-size: large;
+	}
+	.table th:nth-child(n + 9),
+	.table td:nth-child(n + 9) {
 		display: none;
 	}
 	.table th:nth-child(2),
@@ -162,7 +171,7 @@
 		display: none;
 	}
 }
-@media (max-width: 999px) {
+@media (max-width: 576px) {
 	.pagination-container {
 		display: flex;
 		justify-content: center;
