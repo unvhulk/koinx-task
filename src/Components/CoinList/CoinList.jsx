@@ -66,7 +66,8 @@ function CoinList() {
 					<div className='dropdown'>
 						<div className='dropdownHeader'>show rows</div>
 						<div className='dropbtn'>
-							{perPage} <img src={downArrow} />
+							<div className=''>{perPage}</div>
+							<img src={downArrow} />
 						</div>
 						<div class='dropdown-content'>
 							<a onClick={handlePerPage}>10</a>
