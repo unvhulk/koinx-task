@@ -34,7 +34,7 @@
 	grid-row: 1/2;
 }
 
-.dropdown:hover .dropdown-content {
+.dropbtn:hover .dropdown-content {
 	display: block;
 }
 .dropbtn {
