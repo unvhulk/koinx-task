@@ -5,6 +5,7 @@ import MobilePopup from "../MobilePopup/MobilePopup.jsx";
 import Star from "../../assets/star.png";
 import triangleDown from "../../assets/triangle-down.png";
 import triangleUp from "../../assets/triangle-up.png";
+import downArrow from "../../assets/down-arrow.png";
 import { Loader } from "../Loader/Loader.jsx";
 import axios from "axios";
 import "./CoinList.css";
@@ -12,19 +13,20 @@ import "./CoinList.css";
 function CoinList() {
 	const [coins, setCoins] = useState([]);
 	const [page, setPage] = useState(1);
+	const [perPage, setPerPage] = useState(10);
 	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
 		setLoading(true);
 		axios
 			.get(
-				`https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&order=market_cap_desc&per_page=10&page=${page}&sparkline=false&price_change_percentage=24h%2C7d`
+				`https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&order=market_cap_desc&per_page=${perPage}&page=${page}&sparkline=false&price_change_percentage=24h%2C7d`
 			)
 			.then((res) => {
 				setCoins(res.data);
 				setLoading(false);
 			});
-	}, [page]);
+	}, [page, perPage]);
 
 	const dollars = new Intl.NumberFormat("en-US");
 	const currency = new Intl.NumberFormat();
@@ -39,7 +41,11 @@ function CoinList() {
 		}
 	};
 
-	function onPageChange(event) {
+	const handlePerPage = (event) => {
+		setPerPage(event.target.innerText);
+	};
+
+	const onPageChange = (event) => {
 		if (event.selected >= 0) {
 			setPage(event.selected + 1);
 		} else if (event.target.innerText === "Next") {
@@ -49,12 +55,32 @@ function CoinList() {
 		} else {
 			setPage(page - 1);
 		}
-	}
+	};
 	return (
 		<div className='coinList'>
 			<div className='coinList-container'>
 				<div className='coinList-header'>
-					Top 100 Cryptocurrencies by Market Cap
+					<div className='coinList-heading'>
+						Top 100 Cryptocurrencies by Market Cap
+					</div>
+					<div className='dropdown'>
+						<div className='dropdownHeader'>show rows</div>
+						<div className='dropbtn'>
+							{perPage} <img src={downArrow} />
+						</div>
+						<div class='dropdown-content'>
+							<a onClick={handlePerPage}>10</a>
+							<a onClick={handlePerPage}>20</a>
+							<a onClick={handlePerPage}>30</a>
+							<a onClick={handlePerPage}>40</a>
+							<a onClick={handlePerPage}>50</a>
+							<a onClick={handlePerPage}>60</a>
+							<a onClick={handlePerPage}>70</a>
+							<a onClick={handlePerPage}>80</a>
+							<a onClick={handlePerPage}>90</a>
+							<a onClick={handlePerPage}>100</a>
+						</div>
+					</div>
 				</div>
 				{loading ? (
 					<Loader />
