@@ -206,7 +206,7 @@ function CoinList() {
 				onPageChange={onPageChange}
 				pageRangeDisplayed={3}
 				marginPagesDisplayed={2}
-				pageCount={10}
+				pageCount={100 / perPage}
 				pageClassName='page-item'
 				pageLinkClassName='page-link'
 				previousClassName='page-item'
